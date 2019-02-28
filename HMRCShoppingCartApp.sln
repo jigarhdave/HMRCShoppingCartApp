@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMRCShoppingCartApp", "HMRCShoppingCartApp\HMRCShoppingCartApp.csproj", "{6326042E-BA30-4BF0-9C79-96CE2E1A724C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMRCShoppingCart.Service", "HMRCShoppingCart.Service\HMRCShoppingCart.Service.csproj", "{44F7EE44-CCF2-47BD-9742-39313379F3E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMRCShoppingCart.Service.Test", "HMRCShoppingCart.Service.Test\HMRCShoppingCart.Service.Test.csproj", "{CA25F1E3-2240-4438-8907-A78FDE8FA78F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{6326042E-BA30-4BF0-9C79-96CE2E1A724C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6326042E-BA30-4BF0-9C79-96CE2E1A724C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6326042E-BA30-4BF0-9C79-96CE2E1A724C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F7EE44-CCF2-47BD-9742-39313379F3E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F7EE44-CCF2-47BD-9742-39313379F3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F7EE44-CCF2-47BD-9742-39313379F3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F7EE44-CCF2-47BD-9742-39313379F3E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA25F1E3-2240-4438-8907-A78FDE8FA78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA25F1E3-2240-4438-8907-A78FDE8FA78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA25F1E3-2240-4438-8907-A78FDE8FA78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA25F1E3-2240-4438-8907-A78FDE8FA78F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
