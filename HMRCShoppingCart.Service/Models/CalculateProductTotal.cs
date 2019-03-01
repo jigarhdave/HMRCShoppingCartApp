@@ -8,18 +8,20 @@ namespace HMRCShoppingCart.Service.Models
     {
         public int Id { get; set; }
 
-        public ShoppingCartItem _shoppingCartItem { get; set; }
+        public ShoppingCartItem ShoppingCartItem { get; set; }
+
+        public decimal Discount { get; set; }
 
         public CalculateProductTotal(ShoppingCartItem shoppingCartItem)
         {
-            _shoppingCartItem = shoppingCartItem;
+            ShoppingCartItem = shoppingCartItem;
         }             
 
         public decimal ProductsTotal
         {
             get
             {
-                return _shoppingCartItem.Product.Price * _shoppingCartItem.Qty ;
+                return ShoppingCartItem.Product.Price * ShoppingCartItem.Qty - Discount;
             }
         }
     }

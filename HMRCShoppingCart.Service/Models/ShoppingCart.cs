@@ -8,20 +8,22 @@ namespace HMRCShoppingCart.Service.Models
 {    
      public class ShoppingCart
     {
-        private readonly IProductCollection productCollection;
+        private readonly IProductCollection _productCollection;
+        private readonly IDiscountCollection _discountCollection;
 
         public  IList<ShoppingCartItem> Items = new List<ShoppingCartItem>();
 
-        public ShoppingCart(IProductCollection productCollection)
+        public ShoppingCart(IProductCollection productCollection , IDiscountCollection discountCollection)
         {            
-            this.productCollection = productCollection;            
+            _productCollection = productCollection;
+            _discountCollection = discountCollection;
         }             
 
         public void AddProduct(string Name, int qty)
         {
             if (!string.IsNullOrEmpty(Name) && qty > 0)
             {
-                var product = productCollection.GetProductByName(Name);
+                var product = _productCollection.GetProductByName(Name);
 
                 var itemByProduct = Items.FirstOrDefault(x => x.Product.Name == product.Name);
 
@@ -42,7 +44,19 @@ namespace HMRCShoppingCart.Service.Models
             IList<CalculateProductTotal> calculateProductTotal = new List<CalculateProductTotal>(
                 Items.Select(x => new CalculateProductTotal(x)));
 
-            //prepare the result object
+
+            var discounts = _discountCollection.GetDiscounts();
+
+            var appliedDiscounts = new List<IDiscount>();
+            foreach (var discount in discounts)
+            {
+                if (discount.IsDiscountApplicable(calculateProductTotal))
+                {
+                    appliedDiscounts.Add(discount);
+                    calculateProductTotal = (discount.ApplyDiscount(calculateProductTotal));
+                }
+            }
+           
             var calculation = new CalculateTotal
             {
                 Total = calculateProductTotal.Sum(x => (x.ProductsTotal)),
